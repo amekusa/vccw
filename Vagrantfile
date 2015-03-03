@@ -43,6 +43,10 @@ Vagrant.configure(2) do |config|
     exit 1
   end
 
+  unless _conf['vm_name'].empty? then
+    config.vm.define _conf['vm_name']
+  end
+
   config.vm.box = ENV['wp_box'] || _conf['wp_box']
   config.ssh.forward_agent = true
 
